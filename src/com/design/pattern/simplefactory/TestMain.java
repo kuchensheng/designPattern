@@ -15,17 +15,26 @@ public class TestMain {
             System.out.println("输入不合法，请重新输入");
             main(null);
         }
-        AbstractOperation operation = OperationSimpleFactory.createOperation(operate);
-        double first  = inputValue();
-        double second = inputValue();
-        operation.setFirstValue(first);
-        operation.setSecondValue(second);
-        System.out.println("获得结果"+operation.getResult());
+        AbstractOperation operation = null;
+        try {
+            operation = OperationSimpleFactory.createOperation(operate);
+            double first  = inputValue();
+            double second = inputValue();
+            operation.setFirstValue(first);
+            operation.setSecondValue(second);
+            System.out.println("获得结果"+operation.getResult());
 
 
-        if(isContinue()) {
-            main(null);
+            if(isContinue()) {
+                main(null);
+            }
+        } catch (Exception e) {
+            System.out.println("出错啦"+e);
+            if(isContinue()) {
+                main(null);
+            }
         }
+
     }
 
     private static boolean isContinue() {
