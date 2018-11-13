@@ -17,6 +17,12 @@ public class OperationSimpleFactory {
             case "-":
                 operation = new OperationSub();
                 break;
+            case "*":
+                operation = new OperationMul();
+                break;
+            case "/":
+                operation = new OperationDiv();
+                break;
                 default:
                     break;
         }
