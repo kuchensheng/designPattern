@@ -5,7 +5,7 @@ package com.design.pattern.simplefactory;
  * @version 创建时间：2018/11/13 10:41
  */
 public class OperationSimpleFactory {
-    public static AbstractOperation createOperation(String operate) {
+    public static AbstractOperation createOperation(String operate) throws Exception {
         if(null == operate || operate.length() == 0) {
             return null;
         }
@@ -24,7 +24,7 @@ public class OperationSimpleFactory {
                 operation = new OperationDiv();
                 break;
                 default:
-                    break;
+                    throw new Exception("不认识的类型");
         }
         return operation;
     }
